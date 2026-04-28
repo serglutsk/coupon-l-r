@@ -79,3 +79,16 @@ When evaluating windowed spend rules, we treat missing windows in user payload d
 - If an exact `Window (days)` value is not present in `user.spend_by_window_days`, we only allow a smaller-window fallback for **lower-bound** operators (`gt`, `gte`).
 - For `lt`, `lte`, and `eq`, we fail safe (return `false`) because smaller-window spend cannot prove an upper-bound constraint for a larger window.
 
+## Next improvements: coupon-level validity checks
+
+Right now, `POST /validate-rule` validates a **user payload** against a **rule object** only.
+
+It does **not** currently take into account coupon-level fields such as:
+- `coupons.is_active` (whether the coupon is enabled)
+- `coupons.valid_from` / `coupons.valid_to` (whether “today” is inside the allowed date range)
+
+In a real system, the final “coupon is applicable” decision should combine:
+- coupon enabled (`is_active = true`)
+- coupon within validity window (if `valid_from` / `valid_to` are set)
+- rule conditions satisfied by the user (`rules.conditions`)
+
