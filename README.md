@@ -12,6 +12,14 @@ Laravel + Inertia React app that demonstrates **dynamic coupons** with a **Rule 
 - **Rule validation endpoint**: `POST /validate-rule` → `{ isValid: boolean }`
 - **Backend evaluator**: `App\Services\Coupon\CouponRuleEvaluator` (strategy-based conditions)
 
+## UI Walkthrough
+
+| Feature | Description | Screenshot |
+| :--- | :--- | :--- |
+| **Coupons Management** | High-level overview of all coupons with status indicators and quick actions. | ![Grid](docs/coupon_grid.png) |
+| **Rule Builder** | Real-time condition management with AND logic. | ![Edit](docs/edit_coupon.png) |
+| **Live Simulator** | Test rules against mock user data before saving. | ![Simulator](docs/edit_coupon2.png) |
+
 ## Tech stack
 
 - **Backend**: Laravel 13, PHP 8.3, MySQL/PostgreSQL Fortify (auth)
