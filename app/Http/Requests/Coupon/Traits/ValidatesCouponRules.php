@@ -21,7 +21,7 @@ trait ValidatesCouponRules
             ->filter(static fn (mixed $c): bool => is_array($c));
 
         /** @var Collection<string|null, Collection<int, array<string, mixed>>> $grouped */
-        $grouped = $items->groupBy(static fn (array $c): string|null => $c['type'] ?? null);
+        $grouped = $items->groupBy(static fn (array $c): ?string => $c['type'] ?? null);
 
         $this->checkTierCount(
             $validator,

@@ -10,7 +10,9 @@ interface CouponConditionInterface
      * Supported condition types.
      */
     public const TYPE_TIER = 'tier';
+
     public const TYPE_SPEND = 'spend';
+
     public const TYPE_LOCATION = 'location';
 
     /**

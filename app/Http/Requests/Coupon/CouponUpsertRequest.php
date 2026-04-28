@@ -109,13 +109,12 @@ class CouponUpsertRequest extends FormRequest
                 $type = $condition['type'] ?? null;
                 $prefix = "rules.conditions.{$index}";
 
-                if ($type === CouponConditionInterface::TYPE_TIER) {
-                    $this->validateTierCondition($validator, $prefix, $condition);
-                } elseif ($type === CouponConditionInterface::TYPE_SPEND) {
-                    $this->validateSpendCondition($validator, $prefix, $condition);
-                } elseif ($type === CouponConditionInterface::TYPE_LOCATION) {
-                    $this->validateLocationCondition($validator, $prefix, $condition);
-                }
+                match ($condition['type'] ?? null) {
+                    CouponConditionInterface::TYPE_TIER => $this->validateTierCondition($validator, $prefix, $condition),
+                    CouponConditionInterface::TYPE_SPEND => $this->validateSpendCondition($validator, $prefix, $condition),
+                    CouponConditionInterface::TYPE_LOCATION => $this->validateLocationCondition($validator, $prefix, $condition),
+                    default => null,
+                };
             }
 
             $this->validateConditionsSet($validator, 'rules.conditions', $conditions);
