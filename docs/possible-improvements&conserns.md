@@ -1,6 +1,6 @@
 # Possible improvements & concerns
 
-## System Design: How would you store complex “Rule Objects” in SQL vs NoSQL?
+## System Design:
 ## Why we chose MySQL JSON here
 
 We chose **MySQL JSON columns** because the “Rule Object” is:
