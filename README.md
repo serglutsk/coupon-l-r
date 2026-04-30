@@ -22,13 +22,14 @@ Laravel + Inertia React app that demonstrates **dynamic coupons** with a **Rule 
 
 ## Tech stack
 
-- **Backend**: Laravel 13, PHP 8.3, MySQL/PostgreSQL Fortify (auth)
+- **Backend**: Laravel 13, PHP 8.3, MySQL/PostgreSQL, Fortify (auth)
 - **Frontend**: Inertia v3 + React 19 + Tailwind CSS v4
 - **Routes**: Wayfinder (typed route/action helpers)
 - **Tests**: Pest v4
 
 ## Quick start
 
+- create your own `.env` file from `.env.example`
 ```bash
 composer run setup
 composer run dev
@@ -39,6 +40,10 @@ The `dev` script runs:
 - Vite dev server
 - queue listener
 - pail logs
+## Possible setup problems
+
+- if you see an error like `Please specify a valid cache path.`, run this CLI command:
+mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache
 
 ## Usage
 
