@@ -106,7 +106,6 @@ class CouponUpsertRequest extends FormRequest
                     continue;
                 }
 
-                $type = $condition['type'] ?? null;
                 $prefix = "rules.conditions.{$index}";
 
                 match ($condition['type'] ?? null) {

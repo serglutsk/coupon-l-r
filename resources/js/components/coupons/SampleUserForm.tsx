@@ -14,6 +14,8 @@ import {
 } from '@/components/ui/collapsible';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { SelectField } from '@/components/ui/select-field';
+import { TIER_OPTIONS, type TierValue } from '@/constants/form-options';
 import {
     Select,
     SelectContent,
@@ -25,8 +27,8 @@ import {
 export type SampleUserFormProps = {
     open: boolean;
     setOpen: (next: boolean) => void;
-    tier: string;
-    setTier: (v: string) => void;
+    tier: TierValue;
+    setTier: (v: TierValue) => void;
     location: string;
     setLocation: (v: string) => void;
     spendWindowDays: string;
@@ -77,28 +79,12 @@ export function SampleUserForm({
                 <CollapsibleContent>
                     <CardContent className="flex flex-col gap-4">
                         <div className="grid gap-3 sm:grid-cols-2">
-                            <div className="grid gap-2">
-                                <Label>Tier</Label>
-                                <Select value={tier} onValueChange={setTier}>
-                                    <SelectTrigger>
-                                        <SelectValue />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="bronze">
-                                            Bronze
-                                        </SelectItem>
-                                        <SelectItem value="silver">
-                                            Silver
-                                        </SelectItem>
-                                        <SelectItem value="gold">
-                                            Gold
-                                        </SelectItem>
-                                        <SelectItem value="platinum">
-                                            Platinum
-                                        </SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
+                            <SelectField
+                                label="Tier"
+                                value={tier}
+                                onChange={setTier}
+                                options={TIER_OPTIONS}
+                            />
 
                             <div className="grid gap-2">
                                 <Label>Location</Label>

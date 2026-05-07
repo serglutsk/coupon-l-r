@@ -10,6 +10,7 @@ import { SampleUserForm } from '@/components/coupons/SampleUserForm';
 import Heading from '@/components/heading';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
+import type { TierValue } from '@/constants/form-options';
 import {
     Card,
     CardContent,
@@ -81,7 +82,7 @@ function RuleBuilderInner({
     coupon: CouponDto | null;
 }) {
     const [sampleOpen, setSampleOpen] = useState(true);
-    const [sampleTier, setSampleTier] = useState('gold');
+    const [sampleTier, setSampleTier] = useState<TierValue>('gold');
     const [sampleLocation, setSampleLocation] = useState('US');
     const [sampleSpendWindowDays, setSampleSpendWindowDays] = useState('30');
     const [sampleSpendAmount, setSampleSpendAmount] = useState('250');

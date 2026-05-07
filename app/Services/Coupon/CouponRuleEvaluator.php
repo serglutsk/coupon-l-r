@@ -14,12 +14,12 @@ namespace App\Services\Coupon;
 class CouponRuleEvaluator
 {
     /**
-     * @var array<string, CouponCondition>
+     * @var array<string, CouponConditionInterface>
      */
     private array $strategies;
 
     /**
-     * @param  iterable<int, CouponCondition>  $strategies
+     * @param  iterable<int, CouponConditionInterface>  $strategies
      */
     public function __construct(iterable $strategies = [])
     {
